@@ -1,10 +1,10 @@
 package service
 
 import (
-	"github.com/nndergunov/deliveryApp/app/services/order/api/v1/orderapi"
+	"github.com/nndergunov/deliveryApp/app/services/order/api/v1/grpclogic/pb"
 )
 
 // OrdersClient interface shows needed signature for the Order Client.
 type OrdersClient interface {
-	GetIncompleteOrders(id int) (*orderapi.ReturnOrderList, error)
+	GetIncompleteOrders(id int) (*pb.OrderResponseList, error)
 }

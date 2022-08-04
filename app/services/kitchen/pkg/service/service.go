@@ -26,8 +26,6 @@ func NewService(communicator OrdersClient) *Service {
 
 // GetTasks returns all the tasks for the kitchen to complete.
 func (s Service) GetTasks(kitchenID int) (domain.Tasks, error) {
-	_, _ = s.communicator.GetIncompleteOrders(kitchenID)
-
 	orders, err := s.communicator.GetIncompleteOrders(kitchenID)
 	if err != nil {
 		return nil, fmt.Errorf("getting orders: %w", err)
@@ -35,9 +33,9 @@ func (s Service) GetTasks(kitchenID int) (domain.Tasks, error) {
 
 	tasks := make(domain.Tasks)
 
-	for _, order := range orders.Orders {
+	for _, order := range orders.OrderResponseList {
 		for _, item := range order.OrderItems {
-			tasks[item]++
+			tasks[int(item)]++
 		}
 	}
 
