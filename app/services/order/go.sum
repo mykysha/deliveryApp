@@ -388,6 +388,8 @@ github.com/nndergunov/deliveryApp/app/pkg/server v0.0.0-20220719145029-84b20cae8
 github.com/nndergunov/deliveryApp/app/pkg/server v0.0.0-20220719145029-84b20cae8739/go.mod h1:VZTZLvj3fcLQ3rdlsxBFZfxw2gPH3vd5AqlVnSRGzLU=
 github.com/nndergunov/deliveryApp/app/services/accounting v0.0.0-20220719145029-84b20cae8739 h1:ooN6osVBzIVpg3Lb9Xr4rEVy31bQL7XKyg2QFILQuSA=
 github.com/nndergunov/deliveryApp/app/services/accounting v0.0.0-20220719145029-84b20cae8739/go.mod h1:Ei2LdfhlM6hAaClZB38gbHaBNKYTkIqYQ087P9b3tPo=
+github.com/nndergunov/deliveryApp/app/services/accounting v0.0.0-20220804110641-987b1c496366 h1:7N5nJkh8RRoDJrhAIgCSnLgND28/58n+IawTv+InQAs=
+github.com/nndergunov/deliveryApp/app/services/accounting v0.0.0-20220804110641-987b1c496366/go.mod h1:FrXT9s95Vag3/HYIaWK7t72Ku98DMajqyPLaBhL4ROk=
 github.com/nndergunov/deliveryApp/app/services/restaurant v0.0.0-20220719145029-84b20cae8739 h1:M1Dln25GrWjm0VWjoeKLe6RCTMIS20XJed+kyTk8SfI=
 github.com/nndergunov/deliveryApp/app/services/restaurant v0.0.0-20220719145029-84b20cae8739/go.mod h1:Y8B9yvxbrI4p8tuMOo3tuwTm9MdqQ0Pg+yS/7SnLQy4=
 github.com/onsi/ginkgo v1.6.0 h1:Ix8l273rp3QzYgXSR+c8d1fTG7UPgYkOSELPhiY/YGw=

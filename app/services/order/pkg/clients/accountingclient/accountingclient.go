@@ -2,12 +2,12 @@
 package accountingclient
 
 import (
-	"bytes"
+	"context"
 	"fmt"
-	"net/http"
-
-	v1 "github.com/nndergunov/deliveryApp/app/pkg/api/v1"
-	"github.com/nndergunov/deliveryApp/app/services/accounting/api/v1/accountingapi"
+	pb "github.com/nndergunov/deliveryApp/app/services/accounting/api/v1/grpc/proto"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
+	"log"
 )
 
 // AccountingClient communicates with accounting service.
@@ -22,29 +22,30 @@ func NewAccountingClient(url string) *AccountingClient {
 
 // CreateTransaction sends transaction data to the accounting service.
 func (a AccountingClient) CreateTransaction(accountID, restaurantID int, orderPrice float64) (bool, error) {
-	transactionDetails, err := v1.Encode(accountingapi.TransactionRequest{
-		FromAccountID: accountID,
-		ToAccountID:   restaurantID,
+	// Set up a connection to the server.
+	conn, err := grpc.Dial(a.accountingURL, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	if err != nil {
+		return false, fmt.Errorf("did not connect: %v", err)
+	}
+	defer func(conn *grpc.ClientConn) {
+		err := conn.Close()
+		if err != nil {
+			log.Println(err)
+		}
+	}(conn)
+
+	c := pb.NewAccountingClient(conn)
+
+	ctx := context.TODO()
+
+	_, err = c.InsertTransaction(ctx, &pb.TransactionRequest{
+		FromAccountID: int64(accountID),
+		ToAccountID:   int64(restaurantID),
 		Amount:        orderPrice,
-	}) // Not final form, is likely to change along the course of accounting service development.
+	})
+
 	if err != nil {
-		return false, fmt.Errorf("encoding request: %w", err)
-	}
-
-	resp, err := http.Post(a.accountingURL+"/v1/transactions", "application/json", bytes.NewBuffer(transactionDetails))
-	if err != nil {
-		return false, fmt.Errorf("sending request: %w", err)
-	}
-
-	if resp.StatusCode != http.StatusOK {
-		return false, fmt.Errorf("%w: error %d", ErrAccountingServiceFail, resp.StatusCode)
-	}
-
-	paymentStatus := new(accountingapi.TransactionResponse)
-
-	err = v1.DecodeResponse(resp, paymentStatus)
-	if err != nil {
-		return false, fmt.Errorf("decoding response: %w", err)
+		return false, fmt.Errorf("got error : %w", err)
 	}
 
 	return true, nil

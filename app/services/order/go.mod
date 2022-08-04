@@ -14,7 +14,7 @@ require (
 	github.com/nndergunov/deliveryApp/app/pkg/logger v0.0.0-20220719145029-84b20cae8739
 	github.com/nndergunov/deliveryApp/app/pkg/messagebroker v0.0.0-20220719145029-84b20cae8739
 	github.com/nndergunov/deliveryApp/app/pkg/server v0.0.0-20220719145029-84b20cae8739
-	github.com/nndergunov/deliveryApp/app/services/accounting v0.0.0-20220719145029-84b20cae8739
+	github.com/nndergunov/deliveryApp/app/services/accounting v0.0.0-20220804110641-987b1c496366
 	github.com/nndergunov/deliveryApp/app/services/restaurant v0.0.0-20220719145029-84b20cae8739
 	github.com/stretchr/testify v1.8.0
 	github.com/volatiletech/sqlboiler/v4 v4.11.0
