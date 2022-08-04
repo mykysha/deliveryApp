@@ -23,6 +23,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type RestaurantServiceClient interface {
 	GetOrder(ctx context.Context, in *Request, opts ...grpc.CallOption) (*OrderResponse, error)
+	GetOrderList(ctx context.Context, in *Parameters, opts ...grpc.CallOption) (*OrderResponseList, error)
 }
 
 type restaurantServiceClient struct {
@@ -42,11 +43,21 @@ func (c *restaurantServiceClient) GetOrder(ctx context.Context, in *Request, opt
 	return out, nil
 }
 
+func (c *restaurantServiceClient) GetOrderList(ctx context.Context, in *Parameters, opts ...grpc.CallOption) (*OrderResponseList, error) {
+	out := new(OrderResponseList)
+	err := c.cc.Invoke(ctx, "/RestaurantService/GetOrderList", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // RestaurantServiceServer is the server API for RestaurantService service.
 // All implementations must embed UnimplementedRestaurantServiceServer
 // for forward compatibility
 type RestaurantServiceServer interface {
 	GetOrder(context.Context, *Request) (*OrderResponse, error)
+	GetOrderList(context.Context, *Parameters) (*OrderResponseList, error)
 	mustEmbedUnimplementedRestaurantServiceServer()
 }
 
@@ -56,6 +67,9 @@ type UnimplementedRestaurantServiceServer struct {
 
 func (UnimplementedRestaurantServiceServer) GetOrder(context.Context, *Request) (*OrderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOrder not implemented")
+}
+func (UnimplementedRestaurantServiceServer) GetOrderList(context.Context, *Parameters) (*OrderResponseList, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOrderList not implemented")
 }
 func (UnimplementedRestaurantServiceServer) mustEmbedUnimplementedRestaurantServiceServer() {}
 
@@ -88,6 +102,24 @@ func _RestaurantService_GetOrder_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RestaurantService_GetOrderList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Parameters)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RestaurantServiceServer).GetOrderList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/RestaurantService/GetOrderList",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RestaurantServiceServer).GetOrderList(ctx, req.(*Parameters))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // RestaurantService_ServiceDesc is the grpc.ServiceDesc for RestaurantService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -98,6 +130,10 @@ var RestaurantService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetOrder",
 			Handler:    _RestaurantService_GetOrder_Handler,
+		},
+		{
+			MethodName: "GetOrderList",
+			Handler:    _RestaurantService_GetOrderList_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
