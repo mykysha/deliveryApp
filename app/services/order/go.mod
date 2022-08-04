@@ -15,7 +15,7 @@ require (
 	github.com/nndergunov/deliveryApp/app/pkg/messagebroker v0.0.0-20220719145029-84b20cae8739
 	github.com/nndergunov/deliveryApp/app/pkg/server v0.0.0-20220719145029-84b20cae8739
 	github.com/nndergunov/deliveryApp/app/services/accounting v0.0.0-20220804110641-987b1c496366
-	github.com/nndergunov/deliveryApp/app/services/restaurant v0.0.0-20220719145029-84b20cae8739
+	github.com/nndergunov/deliveryApp/app/services/restaurant v0.0.0-20220804110641-987b1c496366
 	github.com/stretchr/testify v1.8.0
 	github.com/volatiletech/sqlboiler/v4 v4.11.0
 	github.com/volatiletech/strmangle v0.0.4
@@ -55,7 +55,6 @@ require (
 	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/moby/term v0.0.0-20210619224110-3f7ff695adc6 // indirect
-	github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e // indirect
 	github.com/opencontainers/go-digest v1.0.0 // indirect
 	github.com/opencontainers/image-spec v1.0.2 // indirect
 	github.com/opencontainers/runc v1.1.3 // indirect
@@ -86,7 +85,6 @@ require (
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/xerrors v0.0.0-20220609144429-65e65417b02f // indirect
 	google.golang.org/genproto v0.0.0-20220720214146-176da50484ac // indirect
-	gopkg.in/check.v1 v1.0.0-20200227125254-8fa46927fb4f // indirect
 	gopkg.in/ini.v1 v1.66.6 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect

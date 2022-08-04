@@ -4,10 +4,11 @@ package accountingclient
 import (
 	"context"
 	"fmt"
+	"log"
+
 	pb "github.com/nndergunov/deliveryApp/app/services/accounting/api/v1/grpc/proto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
-	"log"
 )
 
 // AccountingClient communicates with accounting service.
