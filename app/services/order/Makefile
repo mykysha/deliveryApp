@@ -58,3 +58,6 @@ download-gomod:
 
 gomod-tidy:
 	go mod tidy -go=1.18 -compat=1.18
+
+proto:
+	protoc --go_out=pb --go_opt=paths=source_relative --go-grpc_out=pb --go-grpc_opt=paths=source_relative order.proto
