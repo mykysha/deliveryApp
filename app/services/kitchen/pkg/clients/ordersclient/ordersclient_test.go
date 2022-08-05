@@ -6,8 +6,9 @@ import (
 	"testing"
 
 	v1 "github.com/nndergunov/deliveryApp/app/pkg/api/v1"
-	"github.com/nndergunov/deliveryApp/app/services/kitchen/pkg/clients/ordersclient"
 	"github.com/nndergunov/deliveryApp/app/services/order/api/v1/orderapi"
+
+	"github.com/nndergunov/deliveryApp/app/services/kitchen/pkg/clients/ordersclient"
 )
 
 func TestGetIncompleteOrders(t *testing.T) {
@@ -76,16 +77,16 @@ func TestGetIncompleteOrders(t *testing.T) {
 				t.Fatal(err)
 			}
 
-			if len(orders.Orders) != len(test.orderList.Orders) {
+			if len(orders.OrderResponseList) != len(test.orderList.Orders) {
 				t.Errorf("wrong number of received errors: expected: %d; got: %d",
-					len(test.orderList.Orders), len(orders.Orders))
+					len(test.orderList.Orders), len(orders.OrderResponseList))
 			}
 
-			for _, rcvdOrder := range orders.Orders {
+			for _, rcvdOrder := range orders.OrderResponseList {
 				found := false
 
 				for _, expOrdr := range test.orderList.Orders {
-					if rcvdOrder.OrderID == expOrdr.OrderID {
+					if int(rcvdOrder.OrderID) == expOrdr.OrderID {
 						found = true
 
 						break
@@ -97,11 +98,11 @@ func TestGetIncompleteOrders(t *testing.T) {
 				}
 			}
 
-			for _, expOrdr := range orders.Orders {
+			for _, expOrdr := range orders.OrderResponseList {
 				found := false
 
 				for _, rcvdOrder := range test.orderList.Orders {
-					if rcvdOrder.OrderID == expOrdr.OrderID {
+					if rcvdOrder.OrderID == int(expOrdr.OrderID) {
 						found = true
 
 						break

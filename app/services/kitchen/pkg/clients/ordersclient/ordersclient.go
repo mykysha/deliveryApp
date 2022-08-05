@@ -3,12 +3,13 @@
 package ordersclient
 
 import (
-	"bytes"
+	"context"
 	"fmt"
-	"net/http"
+	"log"
 
-	v1 "github.com/nndergunov/deliveryApp/app/pkg/api/v1"
-	"github.com/nndergunov/deliveryApp/app/services/order/api/v1/orderapi"
+	"github.com/nndergunov/deliveryApp/app/services/order/api/v1/grpclogic/pb"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 )
 
 // OrdersClient is used to comunicate with the order service.
@@ -22,40 +23,32 @@ func NewOrdersClient(orderServiceBaseURL string) *OrdersClient {
 }
 
 // GetIncompleteOrders returns all orders that are not marked as complete.
-func (c OrdersClient) GetIncompleteOrders(id int) (*orderapi.ReturnOrderList, error) {
-	filters := orderapi.OrderFilters{
-		FromRestaurantID: &id,
+func (o OrdersClient) GetIncompleteOrders(id int) (*pb.OrderResponseList, error) {
+	// Set up a connection to the server.
+	conn, err := grpc.Dial(o.orderServiceBaseURL, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	if err != nil {
+		return nil, fmt.Errorf("did not connect: %v", err)
+	}
+	defer func(conn *grpc.ClientConn) {
+		err := conn.Close()
+		if err != nil {
+			log.Println(err)
+		}
+	}(conn)
+
+	c := pb.NewRestaurantServiceClient(conn)
+
+	ctx := context.TODO()
+
+	param := &pb.Parameters{
+		FromRestaurantID: int32(id),
 		Statuses:         nil,
-		ExcludeStatuses:  []string{orderapi.Complete},
+		ExcludeStatuses:  nil,
 	}
 
-	requestData, err := v1.Encode(filters)
+	r, err := c.GetOrderList(ctx, param)
 	if err != nil {
-		return nil, fmt.Errorf("encoding HTTP request: %w", err)
+		return nil, fmt.Errorf("could not get order: %v", err)
 	}
-
-	req, err := http.NewRequest(http.MethodGet, c.orderServiceBaseURL+"/v1/orders", bytes.NewBuffer(requestData))
-	if err != nil {
-		return nil, fmt.Errorf("making HTTP request: %w", err)
-	}
-
-	client := http.DefaultClient
-
-	resp, err := client.Do(req)
-	if err != nil {
-		return nil, fmt.Errorf("sending HTTP request: %w", err)
-	}
-
-	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("%w: http status: %d", ErrOrderServiceFailed, resp.StatusCode)
-	}
-
-	orders := new(orderapi.ReturnOrderList)
-
-	err = v1.DecodeResponse(resp, orders)
-	if err != nil {
-		return nil, fmt.Errorf("decoding HTTP response: %w", err)
-	}
-
-	return orders, nil
+	return r, nil
 }

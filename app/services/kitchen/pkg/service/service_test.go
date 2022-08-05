@@ -3,25 +3,24 @@ package service_test
 import (
 	"testing"
 
+	"github.com/nndergunov/deliveryApp/app/services/order/api/v1/grpclogic/pb"
+
 	"github.com/nndergunov/deliveryApp/app/services/kitchen/pkg/service"
-	"github.com/nndergunov/deliveryApp/app/services/order/api/v1/orderapi"
 )
 
-var mockOrderList = orderapi.ReturnOrderList{
-	Orders: []orderapi.ReturnOrder{
-		{
-			OrderID:      0,
-			FromUserID:   0,
-			RestaurantID: 0,
-			OrderItems:   []int{1, 2, 3, 4, 5},
-			Status:       "",
-		},
+var mockOrderList = pb.OrderResponseList{OrderResponseList: []*pb.OrderResponse{
+	{
+		OrderID:      0,
+		FromUserID:   0,
+		RestaurantID: 0,
+		OrderItems:   []int32{1, 2, 3, 4, 5},
+		Status:       nil,
 	},
-}
+}}
 
 type mockCommunicator struct{}
 
-func (m mockCommunicator) GetIncompleteOrders(_ int) (*orderapi.ReturnOrderList, error) {
+func (m mockCommunicator) GetIncompleteOrders(_ int) (*pb.OrderResponseList, error) {
 	return &mockOrderList, nil
 }
 

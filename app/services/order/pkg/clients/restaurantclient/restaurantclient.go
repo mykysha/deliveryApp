@@ -2,13 +2,15 @@
 package restaurantclient
 
 import (
+	"context"
 	"fmt"
-	"net/http"
-	"strconv"
+	"log"
 
-	v1 "github.com/nndergunov/deliveryApp/app/pkg/api/v1"
+	pb "github.com/nndergunov/deliveryApp/app/services/restaurant/api/v1/grpclogic/pb"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
+
 	"github.com/nndergunov/deliveryApp/app/services/order/pkg/domain"
-	"github.com/nndergunov/deliveryApp/app/services/restaurant/api/v1/restaurantapi"
 )
 
 // RestaurantClient is responsible for communicating with restaurant service.
@@ -23,52 +25,62 @@ func NewRestaurantClient(url string) *RestaurantClient {
 
 // CheckIfAvailable returns whether the restaurant can accept orders.
 func (r RestaurantClient) CheckIfAvailable(restaurantID int) (bool, error) {
-	resp, err := http.Get(r.restaurantURL + "/v1/restaurants/" + strconv.Itoa(restaurantID))
+	// Set up a connection to the server.
+	conn, err := grpc.Dial(r.restaurantURL, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	if err != nil {
+		return false, fmt.Errorf("did not connect: %v", err)
+	}
+	defer func(conn *grpc.ClientConn) {
+		err := conn.Close()
+		if err != nil {
+			log.Println(err)
+		}
+	}(conn)
+
+	c := pb.NewRestaurantServiceClient(conn)
+
+	ctx := context.TODO()
+
+	resp, err := c.GetRestaurant(ctx, &pb.Request{ID: int32(restaurantID)})
 	if err != nil {
 		return false, fmt.Errorf("getting restaurant: %w", err)
 	}
 
-	if resp.StatusCode != http.StatusOK {
-		return false, fmt.Errorf("%w: response code %d", ErrRestaurantFail, resp.StatusCode)
-	}
-
-	restaurant := new(restaurantapi.ReturnRestaurant)
-
-	err = v1.DecodeResponse(resp, restaurant)
-	if err != nil {
-		return false, fmt.Errorf("decoding response: %w", err)
-	}
-
-	return restaurant.AcceptingOrders, nil
+	return resp.AcceptingOrders, nil
 }
 
 // CalculateOrderPrice returns the price of the order.
 func (r RestaurantClient) CalculateOrderPrice(order domain.Order) (float64, error) {
-	resp, err := http.Get(r.restaurantURL + "/v1/restaurants/" + strconv.Itoa(order.RestaurantID) + "/menu")
+	// Set up a connection to the server.
+	conn, err := grpc.Dial(r.restaurantURL, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
-		return 0, fmt.Errorf("getting menu: %w", err)
+		return 0, fmt.Errorf("did not connect: %v", err)
 	}
+	defer func(conn *grpc.ClientConn) {
+		err := conn.Close()
+		if err != nil {
+			log.Println(err)
+		}
+	}(conn)
 
-	if resp.StatusCode != http.StatusOK {
-		return 0, fmt.Errorf("%w: response code %d", ErrRestaurantFail, resp.StatusCode)
-	}
+	c := pb.NewRestaurantServiceClient(conn)
 
-	menu := new(restaurantapi.ReturnMenu)
+	ctx := context.TODO()
 
-	err = v1.DecodeResponse(resp, menu)
+	menu, err := c.GetMenu(ctx, &pb.Request{ID: int32(order.RestaurantID)})
 	if err != nil {
-		return 0, fmt.Errorf("decoding response: %w", err)
+		return 0, fmt.Errorf("getting restaurant: %w", err)
 	}
 
 	var price float64
 
 	for _, itemID := range order.OrderItems {
 		for _, menuItem := range menu.MenuItems {
-			if menuItem.ID != itemID {
+			if int(menuItem.ID) != itemID {
 				continue
 			}
 
-			price += menuItem.Price
+			price += float64(menuItem.Price)
 		}
 	}
 
