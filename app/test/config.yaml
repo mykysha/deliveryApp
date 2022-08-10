@@ -1,0 +1,9 @@
+service:
+  local:
+    accounting: http://localhost:8080
+    consumer: http://localhost:8081
+    courier: http://localhost:8082
+    delivery: http://localhost:8083
+    kitchent: http://localhost:8084
+    order: http://localhost:8085
+    restaurant: http://localhost:8086
