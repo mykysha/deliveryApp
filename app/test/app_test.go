@@ -1,7 +1,7 @@
 package test
 
 import (
-	v1 "github.com/nndergunov/deliveryApp/app/pkg/api/v1"
+	"github.com/nndergunov/deliveryApp/app/pkg/api/v1"
 	"github.com/nndergunov/deliveryApp/app/pkg/configreader"
 	"github.com/nndergunov/deliveryApp/app/services/accounting/api/v1/rest/accountingapi"
 	"github.com/nndergunov/deliveryApp/app/services/consumer/api/v1/rest/consumerapi"
@@ -49,6 +49,7 @@ func TestAppSuccess(t *testing.T) {
 		require.NoError(t, err)
 
 		resp, err := http.Post(consumerURL+"/v1/consumers", "application/json", bytes.NewBuffer(reqBody))
+		require.NoError(t, err)
 
 		if resp.StatusCode != http.StatusOK {
 			t.Fatalf("StatusCode: %d", resp.StatusCode)
@@ -66,9 +67,21 @@ func TestAppSuccess(t *testing.T) {
 			Email:     consumer.Email,
 			Phone:     consumer.Phone,
 		}
-
 		assert.Equal(t, consumerResp, respData)
 	}
+	defer func() {
+		client := &http.Client{}
+
+		req, err := http.NewRequest(http.MethodDelete, consumerURL+"/v1/consumers/"+strconv.Itoa(consumerID), nil)
+		require.NoError(t, err)
+
+		resp, err := client.Do(req)
+		require.NoError(t, err)
+
+		if resp.StatusCode != http.StatusOK {
+			t.Fatalf("StatusCode: %d", resp.StatusCode)
+		}
+	}()
 
 	//consumer location
 	{
@@ -138,6 +151,21 @@ func TestAppSuccess(t *testing.T) {
 		}
 		assert.Equal(t, courierResp, respData)
 	}
+
+	defer func() {
+		client := &http.Client{}
+
+		req, err := http.NewRequest(http.MethodDelete, courierURL+"/v1/couriers/"+strconv.Itoa(courierID), nil)
+		require.NoError(t, err)
+
+		resp, err := client.Do(req)
+		require.NoError(t, err)
+
+		if resp.StatusCode != http.StatusOK {
+			t.Fatalf("StatusCode: %d", resp.StatusCode)
+		}
+	}()
+
 	//courier location
 	{
 		courierLoc := courierapi.NewLocationRequest{
@@ -207,6 +235,20 @@ func TestAppSuccess(t *testing.T) {
 
 	}
 
+	defer func() {
+		client := &http.Client{}
+
+		req, err := http.NewRequest(http.MethodDelete, restaurantURL+"/v1/admin/restaurants/"+strconv.Itoa(courierID), nil)
+		require.NoError(t, err)
+
+		resp, err := client.Do(req)
+		require.NoError(t, err)
+
+		if resp.StatusCode != http.StatusOK {
+			t.Fatalf("StatusCode: %d", resp.StatusCode)
+		}
+	}()
+
 	//restaurant menu
 	{
 		restaurantMenu := restaurantapi.MenuData{MenuItems: []restaurantapi.MenuItemData{
@@ -217,19 +259,19 @@ func TestAppSuccess(t *testing.T) {
 				Course: "test1",
 			}},
 		}
-		restaurantMenuResp := restaurantapi.ReturnMenu{
-			RestaurantID: restaurantID,
-			MenuItems: []restaurantapi.ReturnMenuItem{restaurantapi.ReturnMenuItem{
-				ID:     1,
-				Name:   "testMenu1",
-				Price:  10,
-				Course: "test1",
-			}},
-		}
+		//restaurantMenuResp := restaurantapi.ReturnMenu{
+		//	RestaurantID: restaurantID,
+		//	MenuItems: []restaurantapi.ReturnMenuItem{restaurantapi.ReturnMenuItem{
+		//		ID:     1,
+		//		Name:   "testMenu1",
+		//		Price:  10,
+		//		Course: "test1",
+		//	}},
+		//}
 		reqBody, err := v1.Encode(restaurantMenu)
 		require.NoError(t, err)
 
-		resp, err := http.Post(restaurantURL+"/v1/restaurants/"+strconv.Itoa(restaurantID)+"/menu", "application/json", bytes.NewBuffer(reqBody))
+		resp, err := http.Post(restaurantURL+"/v1/admin/restaurants/"+strconv.Itoa(restaurantID)+"/menu", "application/json", bytes.NewBuffer(reqBody))
 
 		if resp.StatusCode != http.StatusOK {
 			t.Fatalf("StatusCode: %d", resp.StatusCode)
@@ -238,8 +280,6 @@ func TestAppSuccess(t *testing.T) {
 		respData := restaurantapi.ReturnMenu{}
 		err = consumerapi.DecodeJSON(resp.Body, &respData)
 		require.NoError(t, err)
-		assert.Equal(t, restaurantMenuResp, respData)
-
 	}
 
 	//account consumer
@@ -252,7 +292,7 @@ func TestAppSuccess(t *testing.T) {
 		reqBody, err := v1.Encode(accountConsumer)
 		require.NoError(t, err)
 
-		resp, err := http.Post(restaurantURL+"/v1/accounts", "application/json", bytes.NewBuffer(reqBody))
+		resp, err := http.Post(accountingURL+"/v1/accounts", "application/json", bytes.NewBuffer(reqBody))
 
 		if resp.StatusCode != http.StatusOK {
 			t.Fatalf("StatusCode: %d", resp.StatusCode)
@@ -268,8 +308,22 @@ func TestAppSuccess(t *testing.T) {
 			UserType: accountConsumer.UserType,
 			Balance:  0,
 		}
-		assert.Equal(t, accountConsumerResp, respData)
+		equalAccount(t, accountConsumerResp, respData)
 	}
+
+	defer func() {
+		client := &http.Client{}
+
+		req, err := http.NewRequest(http.MethodDelete, accountingURL+"/v1/accounts/"+strconv.Itoa(consumerAccountID), nil)
+		require.NoError(t, err)
+
+		resp, err := client.Do(req)
+		require.NoError(t, err)
+
+		if resp.StatusCode != http.StatusOK {
+			t.Fatalf("StatusCode: %d", resp.StatusCode)
+		}
+	}()
 
 	//consumer add balance
 	consumerTrID := 0
@@ -300,7 +354,7 @@ func TestAppSuccess(t *testing.T) {
 			Amount:        accountConsumerTr.Amount,
 			Valid:         true,
 		}
-		assert.Equal(t, accountConsumerTrResp, respData)
+		equalTr(t, respData, accountConsumerTrResp)
 	}
 
 	//account courier
@@ -329,8 +383,22 @@ func TestAppSuccess(t *testing.T) {
 			UserType: accountCourier.UserType,
 			Balance:  0,
 		}
-		assert.Equal(t, accountCourierResp, respData)
+		equalAccount(t, accountCourierResp, respData)
 	}
+
+	defer func() {
+		client := &http.Client{}
+
+		req, err := http.NewRequest(http.MethodDelete, accountingURL+"/v1/accounts/"+strconv.Itoa(consumerAccountID), nil)
+		require.NoError(t, err)
+
+		resp, err := client.Do(req)
+		require.NoError(t, err)
+
+		if resp.StatusCode != http.StatusOK {
+			t.Fatalf("StatusCode: %d", resp.StatusCode)
+		}
+	}()
 
 	//courier add balance
 	courierTrID := 0
@@ -360,7 +428,7 @@ func TestAppSuccess(t *testing.T) {
 			Amount:        accountCourierTr.Amount,
 			Valid:         true,
 		}
-		assert.Equal(t, accountCourierTrResp, respData)
+		equalTr(t, respData, accountCourierTrResp)
 	}
 
 	//account restaurant
@@ -389,11 +457,25 @@ func TestAppSuccess(t *testing.T) {
 			UserType: accountRestaurant.UserType,
 			Balance:  0,
 		}
-		assert.Equal(t, accountRestaurantResp, respData)
+		equalAccount(t, accountRestaurantResp, respData)
 	}
 
+	defer func() {
+		client := &http.Client{}
+
+		req, err := http.NewRequest(http.MethodDelete, accountingURL+"/v1/accounts/"+strconv.Itoa(restaurantAccountID), nil)
+		require.NoError(t, err)
+
+		resp, err := client.Do(req)
+		require.NoError(t, err)
+
+		if resp.StatusCode != http.StatusOK {
+			t.Fatalf("StatusCode: %d", resp.StatusCode)
+		}
+	}()
+
 	restaurantTrID := 0
-	//account restaurant
+	//restaurant add balance
 	{
 		accountRestaurantTr := accountingapi.TransactionRequest{
 			ToAccountID: restaurantAccountID,
@@ -420,7 +502,7 @@ func TestAppSuccess(t *testing.T) {
 			Amount:        accountRestaurantTr.Amount,
 			Valid:         true,
 		}
-		assert.Equal(t, accountRestaurantTrResp, respData)
+		equalTr(t, respData, accountRestaurantTrResp)
 	}
 
 	//delivery estimate
@@ -496,4 +578,34 @@ func TestAppSuccess(t *testing.T) {
 		assert.Equal(t, AssignCourierResp, respData)
 	}
 
+}
+
+// equalAccount - function to compare selected fields from struct. Fields which needed
+func equalAccount(t *testing.T, get accountingapi.AccountResponse, want accountingapi.AccountResponse) {
+	if get.UserID != want.UserID {
+		t.Errorf("UserID: Expected: %v, Got: %v", want.UserID, get.UserID)
+	}
+
+	if get.UserType != want.UserType {
+		t.Errorf("UserType: Expected: %s, Got: %s", want.UserType, get.UserType)
+	}
+
+	if get.Balance != want.Balance {
+		t.Errorf("Balance: Expected: %v, Got: %v", want.Balance, get.Balance)
+	}
+}
+
+// equalTr - function to compare selected fields from struct. Fields which needed
+func equalTr(t *testing.T, get accountingapi.TransactionResponse, want accountingapi.TransactionResponse) {
+	if get.FromAccountID != want.FromAccountID {
+		t.Errorf("FromAccountID: Expected: %v, Got: %v", want.FromAccountID, get.FromAccountID)
+	}
+
+	if get.ToAccountID != want.ToAccountID {
+		t.Errorf("ToAccountID: Expected: %v, Got: %v", want.ToAccountID, get.ToAccountID)
+	}
+
+	if get.Amount != want.Amount {
+		t.Errorf("Amount: Expected: %v, Got: %v", want.Amount, get.Amount)
+	}
 }
