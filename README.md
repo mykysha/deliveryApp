@@ -1,6 +1,5 @@
 # deliveryApp
 [![made-with-Go](https://img.shields.io/badge/Made%20with-Go-1f425f.svg)](https://go.dev/)
-[![CodeFactor](https://www.codefactor.io/repository/github/nndergunov/deliveryApp/badge)](https://www.codefactor.io/repository/github/nndergunov/deliveryApp)
 [![Go Report Card](https://goreportcard.com/badge/github.com/nndergunov/deliveryApp)](https://goreportcard.com/report/github.com/nndergunov/deliveryApp)
 [![Repo Size](https://img.shields.io/github/repo-size/nndergunov/deliveryApp)](https://github.com/nndergunov/deliveryApp)
 
@@ -43,7 +42,7 @@ curl -X POST http://localhost:8086/v1/admin/restaurants/${id}/menu -H 'Content-T
 ```
 
 | Parameter | Type  | Description                             |
-| :-------- | :---- | :-------------------------------------- |
+|:----------|:------|:----------------------------------------|
 | `id`      | `int` | **Required**. Id of restaurant to fetch |
 
 #### Get all restaurants (menus are not returned)
@@ -59,7 +58,7 @@ curl -X GET http://localhost:8086/v1/restaurants/${id}
 ```
 
 | Parameter | Type  | Description                             |
-| :-------- | :---- | :-------------------------------------- |
+|:----------|:------|:----------------------------------------|
 | `id`      | `int` | **Required**. Id of restaurant to fetch |
 
 #### Get restaurant menu
@@ -69,7 +68,7 @@ curl -X GET http://localhost:8086/v1/restaurants/${id}/menu
 ```
 
 | Parameter | Type  | Description                                             |
-| :-------- | :-----| :------------------------------------------------------ |
+|:----------|:------|:--------------------------------------------------------|
 | `id`      | `int` | **Required**. Id of restaurant from which to fetch menu |
 
 ### Order service
@@ -89,7 +88,7 @@ curl -X GET http://localhost:8084/v1/tasks/${id}
 ```
 
 | Parameter | Type  | Description                                              |
-| :-------- | :-----| :------------------------------------------------------- |
+|:----------|:------|:---------------------------------------------------------|
 | `id`      | `int` | **Required**. Id of restaurant from which to fetch tasks |
 
 #### Courier service
@@ -112,9 +111,9 @@ curl -X POST http://localhost:8082/v1/locations
 curl -X GET http://localhost:8082/v1/couriers/{id}
 ```
 
-| Parameter | Type  | Description                                    |
-| :-------- | :-----|:-----------------------------------------------|
-| `id`      | `int` | **Required**. Id of courier to fetch           |
+| Parameter | Type  | Description                          |
+|:----------|:------|:-------------------------------------|
+| `id`      | `int` | **Required**. Id of courier to fetch |
 
 ##### Get courier location
 
@@ -122,9 +121,9 @@ curl -X GET http://localhost:8082/v1/couriers/{id}
 curl -X GET http://localhost:8082/v1/locations/{id}
 ```
 
-| Parameter | Type  | Description                                    |
-| :-------- | :-----|:-----------------------------------------------|
-| `id`      | `int` | **Required**. Id of courier to fetch           |
+| Parameter | Type  | Description                          |
+|:----------|:------|:-------------------------------------|
+| `id`      | `int` | **Required**. Id of courier to fetch |
 
 #### Consumer service
 
@@ -147,7 +146,7 @@ curl -X GET http://localhost:8082/v1/couriers/{id}
 ```
 
 | Parameter | Type  | Description                           |
-| :-------- | :-----|:--------------------------------------|
+|:----------|:------|:--------------------------------------|
 | `id`      | `int` | **Required**. Id of consumer to fetch |
 
 ##### Get consumer location
@@ -157,7 +156,7 @@ curl -X GET http://localhost:8082/v1/locations/{id}
 ```
 
 | Parameter | Type  | Description                           |
-| :-------- | :-----|:--------------------------------------|
+|:----------|:------|:--------------------------------------|
 | `id`      | `int` | **Required**. Id of consumer to fetch |
 
 #### Accounting service
@@ -175,7 +174,7 @@ curl -X GET http://localhost:8082/v1/accounts/{id}
 ```
 
 | Parameter | Type  | Description                           |
-| :-------- | :-----|:--------------------------------------|
+|:----------|:------|:--------------------------------------|
 | `id`      | `int` | **Required**. Id of consumer to fetch |
 
 ##### Get account list
@@ -185,9 +184,9 @@ curl -X GET http://localhost:8082/v1/accounts
 ```
 
 | query Parameter | Type     | Description                              |
-|:-----------------|:---------|:-----------------------------------------|
-| `user_id`        | `string` | **Required**. Id of user to fetch        |
-| `user_type`      | `string` | **Required**. user type of user to fetch |
+|:----------------|:---------|:-----------------------------------------|
+| `user_id`       | `string` | **Required**. Id of user to fetch        |
+| `user_type`     | `string` | **Required**. user type of user to fetch |
 
 ##### Transaction adding to balance
 
@@ -239,11 +238,10 @@ curl -X GET http://localhost:8083/v1/estimate
 ##### Assign order to available courier near restaurant
 
 ```shell
-curl -X POST http://localhost:8083/v1/orders/{id}/assing
+curl -X POST http://localhost:8083/v1/orders/{id}/assign
 ```
 
 | body            | Type  | Description                 |
 |:----------------|:------|:----------------------------|
 | `from_user_id`  | `int` | **Required**. from user id  |
 | `restaurant_id` | `int` | **Required**. restaurant id |
-
