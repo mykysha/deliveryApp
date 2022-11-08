@@ -12,7 +12,7 @@ definitions:
     - MenuItems
     title: MenuData contains information about the menu.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/restaurant/api/v1/restaurantapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/restaurant/api/v1/restaurantapi
   MenuItemData:
     properties:
       Course:
@@ -32,7 +32,7 @@ definitions:
     - Course
     title: MenuItemData contains information about the menu item.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/restaurant/api/v1/restaurantapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/restaurant/api/v1/restaurantapi
   RestaurantData:
     properties:
       AcceptingOrders:
@@ -58,7 +58,7 @@ definitions:
     - Latitude
     title: RestaurantData contains information about the restaurant.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/restaurant/api/v1/restaurantapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/restaurant/api/v1/restaurantapi
   ReturnMenu:
     properties:
       MenuItems:
@@ -70,7 +70,7 @@ definitions:
         type: integer
     title: ReturnMenu contains information about the menu from requested restaurant.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/restaurant/api/v1/restaurantapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/restaurant/api/v1/restaurantapi
   ReturnMenuItem:
     properties:
       Course:
@@ -85,7 +85,7 @@ definitions:
         type: number
     title: ReturnMenuItem contains information about requested menu item.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/restaurant/api/v1/restaurantapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/restaurant/api/v1/restaurantapi
   ReturnRestaurant:
     properties:
       AcceptingOrders:
@@ -107,7 +107,7 @@ definitions:
         type: string
     title: ReturnRestaurant contains information about the requested restaurant.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/restaurant/api/v1/restaurantapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/restaurant/api/v1/restaurantapi
   ReturnRestaurantList:
     properties:
       List:
@@ -116,7 +116,7 @@ definitions:
         type: array
     title: ReturnRestaurantList contains data about all the requested restaurants.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/restaurant/api/v1/restaurantapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/restaurant/api/v1/restaurantapi
 host: localhost:8086
 info:
   description: API specification of the restaurant service

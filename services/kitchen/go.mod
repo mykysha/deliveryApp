@@ -4,11 +4,11 @@ go 1.18
 
 require (
 	github.com/gorilla/mux v1.8.0
-	github.com/nndergunov/deliveryApp/app/pkg/api v0.0.0-20220805122025-37eac91da1fc
-	github.com/nndergunov/deliveryApp/app/pkg/configreader v0.0.0-20220805122025-37eac91da1fc
-	github.com/nndergunov/deliveryApp/app/pkg/logger v0.0.0-20220805122025-37eac91da1fc
-	github.com/nndergunov/deliveryApp/app/pkg/server v0.0.0-20220805122025-37eac91da1fc
-	github.com/nndergunov/deliveryApp/app/services/order v0.0.0-20220805122025-37eac91da1fc
+	github.com/nndergunov/deliveryApp/pkg/api v0.0.0-20221107230847-589103b2ccaa
+	github.com/nndergunov/deliveryApp/pkg/configreader v0.0.0-20221107230847-589103b2ccaa
+	github.com/nndergunov/deliveryApp/pkg/logger v0.0.0-20221107230847-589103b2ccaa
+	github.com/nndergunov/deliveryApp/pkg/server v0.0.0-20221107230847-589103b2ccaa
+	github.com/nndergunov/deliveryApp/services/order v0.0.0-20221107230847-589103b2ccaa
 	github.com/stretchr/testify v1.8.1
 	google.golang.org/grpc v1.50.1
 )
@@ -22,6 +22,7 @@ require (
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/magiconair/properties v1.8.6 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
+	github.com/nndergunov/deliveryApp/app/pkg/logger v0.0.0-20220805122025-37eac91da1fc // indirect
 	github.com/pelletier/go-toml v1.9.5 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.5 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
@@ -33,10 +34,10 @@ require (
 	github.com/spf13/viper v1.14.0 // indirect
 	github.com/stretchr/objx v0.5.0 // indirect
 	github.com/subosito/gotenv v1.4.1 // indirect
-	golang.org/x/net v0.0.0-20221014081412-f15817d10f9b // indirect
+	golang.org/x/net v0.1.0 // indirect
 	golang.org/x/sys v0.2.0 // indirect
 	golang.org/x/text v0.4.0 // indirect
-	google.golang.org/genproto v0.0.0-20221024183307-1bc688fe9f3e // indirect
+	google.golang.org/genproto v0.0.0-20221107162902-2d387536bcdd // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect

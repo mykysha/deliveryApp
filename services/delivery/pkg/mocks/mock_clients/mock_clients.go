@@ -8,9 +8,9 @@ import (
 	reflect "reflect"
 
 	gomock "github.com/golang/mock/gomock"
-	consumer_proto "github.com/nndergunov/deliveryApp/app/services/consumer/api/v1/grpc/proto"
-	courier_proto "github.com/nndergunov/deliveryApp/app/services/courier/api/v1/grpc/proto"
-	pb "github.com/nndergunov/deliveryApp/app/services/restaurant/api/v1/grpclogic/pb"
+	consumer_proto "github.com/nndergunov/deliveryApp/services/consumer/api/v1/grpc/proto"
+	courier_proto "github.com/nndergunov/deliveryApp/services/courier/api/v1/grpc/proto"
+	pb "github.com/nndergunov/deliveryApp/services/restaurant/api/v1/grpclogic/pb"
 )
 
 // MockRestaurantClient is a mock of RestaurantClient interface.

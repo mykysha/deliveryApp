@@ -4,7 +4,7 @@ import (
 	"errors"
 	"net/http"
 
-	v1 "github.com/nndergunov/deliveryApp/app/pkg/api/v1"
+	v1 "github.com/nndergunov/deliveryApp/pkg/api/v1"
 	"github.com/nndergunov/deliveryApp/services/order/pkg/service"
 )
 

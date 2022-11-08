@@ -6,8 +6,8 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	v1 "github.com/nndergunov/deliveryApp/app/pkg/api/v1"
-	"github.com/nndergunov/deliveryApp/app/pkg/logger"
+	v1 "github.com/nndergunov/deliveryApp/pkg/api/v1"
+	"github.com/nndergunov/deliveryApp/pkg/logger"
 	"github.com/nndergunov/deliveryApp/services/restaurant/api/v1/restaurantapi"
 	"github.com/nndergunov/deliveryApp/services/restaurant/pkg/service"
 )

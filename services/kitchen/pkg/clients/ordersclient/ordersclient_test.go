@@ -5,9 +5,9 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	v1 "github.com/nndergunov/deliveryApp/app/pkg/api/v1"
-	"github.com/nndergunov/deliveryApp/app/services/order/api/v1/orderapi"
+	v1 "github.com/nndergunov/deliveryApp/pkg/api/v1"
 	"github.com/nndergunov/deliveryApp/services/kitchen/pkg/clients/ordersclient"
+	"github.com/nndergunov/deliveryApp/services/order/api/v1/orderapi"
 )
 
 func TestGetIncompleteOrders(t *testing.T) {

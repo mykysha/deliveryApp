@@ -4,7 +4,7 @@ import (
 	"context"
 	"strconv"
 
-	"github.com/nndergunov/deliveryApp/app/pkg/logger"
+	"github.com/nndergunov/deliveryApp/pkg/logger"
 	pb "github.com/nndergunov/deliveryApp/services/delivery/api/v1/grpc/proto"
 	"github.com/nndergunov/deliveryApp/services/delivery/pkg/domain"
 	"github.com/nndergunov/deliveryApp/services/delivery/pkg/service/deliveryservice"

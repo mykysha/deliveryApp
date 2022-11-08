@@ -3,7 +3,7 @@ package grpcserver
 import (
 	"net"
 
-	"github.com/nndergunov/deliveryApp/app/pkg/logger"
+	"github.com/nndergunov/deliveryApp/pkg/logger"
 	"google.golang.org/grpc"
 )
 

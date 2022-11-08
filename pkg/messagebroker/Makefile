@@ -7,6 +7,7 @@ update-gomod:
 
 download-gomod:
 	go get -u github.com/rabbitmq/amqp091-go
+	go get -u github.com/nndergunov/deliveryApp/pkg/logger
 	go get -u github.com/nndergunov/deliveryApp/pkg/api # needed for tests
 
 gomod-tidy:

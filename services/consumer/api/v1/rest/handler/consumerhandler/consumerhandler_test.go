@@ -8,17 +8,14 @@ import (
 	"testing"
 
 	"github.com/golang/mock/gomock"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
-
-	v1 "github.com/nndergunov/deliveryApp/app/pkg/api/v1"
-	"github.com/nndergunov/deliveryApp/app/pkg/logger"
-
+	v1 "github.com/nndergunov/deliveryApp/pkg/api/v1"
+	"github.com/nndergunov/deliveryApp/pkg/logger"
 	"github.com/nndergunov/deliveryApp/services/consumer/api/v1/rest/consumerapi"
-
 	"github.com/nndergunov/deliveryApp/services/consumer/api/v1/rest/handler/consumerhandler"
 	"github.com/nndergunov/deliveryApp/services/consumer/pkg/domain"
 	mockservice "github.com/nndergunov/deliveryApp/services/consumer/pkg/mocks"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestInsertNewConsumerEndpoint(t *testing.T) {

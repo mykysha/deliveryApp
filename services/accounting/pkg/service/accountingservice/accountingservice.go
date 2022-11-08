@@ -5,7 +5,7 @@ import (
 	"errors"
 	"strconv"
 
-	"github.com/nndergunov/deliveryApp/app/pkg/logger"
+	"github.com/nndergunov/deliveryApp/pkg/logger"
 	"github.com/nndergunov/deliveryApp/services/accounting/pkg/domain"
 )
 

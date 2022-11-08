@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/nndergunov/deliveryApp/app/pkg/logger"
+	"github.com/nndergunov/deliveryApp/pkg/logger"
 )
 
 // Config consists of data needed for server configuration.

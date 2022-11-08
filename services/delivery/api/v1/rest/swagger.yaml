@@ -17,7 +17,7 @@ definitions:
     - restaurant_id
     title: AssignOrderRequest contains information about assign order.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/delivery/api/v1/deliveryapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/delivery/api/v1/deliveryapi
   AssignOrderResponse:
     properties:
       courier_id:
@@ -30,7 +30,7 @@ definitions:
         x-go-name: OrderID
     title: AssignOrderResponse contains information about assign order.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/delivery/api/v1/deliveryapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/delivery/api/v1/deliveryapi
   EstimateDeliveryRequest:
     properties:
       consumer_id:
@@ -46,7 +46,7 @@ definitions:
     - restaurant_id
     title: EstimateDeliveryRequest contains information about the estimate values.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/delivery/api/v1/deliveryapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/delivery/api/v1/deliveryapi
   EstimateDeliveryResponse:
     properties:
       cost:
@@ -58,7 +58,7 @@ definitions:
         x-go-name: Time
     title: EstimateDeliveryResponse contains information about the estimate values.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/delivery/api/v1/deliveryapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/delivery/api/v1/deliveryapi
 host: localhost:8083
 info:
   description: API specification of the delivery service

@@ -8,11 +8,11 @@ require (
 	github.com/friendsofgo/errors v0.9.2
 	github.com/gorilla/mux v1.8.0
 	github.com/lib/pq v1.10.7
-	github.com/nndergunov/deliveryApp/app/pkg/api v0.0.0-20220805122025-37eac91da1fc
-	github.com/nndergunov/deliveryApp/app/pkg/configreader v0.0.0-20220805122025-37eac91da1fc
-	github.com/nndergunov/deliveryApp/app/pkg/grpcserver v0.0.0-20220805122025-37eac91da1fc
-	github.com/nndergunov/deliveryApp/app/pkg/logger v0.0.0-20220805122025-37eac91da1fc
-	github.com/nndergunov/deliveryApp/app/pkg/server v0.0.0-20220805122025-37eac91da1fc
+	github.com/nndergunov/deliveryApp/pkg/api v0.0.0-20221107230847-589103b2ccaa
+	github.com/nndergunov/deliveryApp/pkg/configreader v0.0.0-20221107230847-589103b2ccaa
+	github.com/nndergunov/deliveryApp/pkg/grpcserver v0.0.0-20221107230847-589103b2ccaa
+	github.com/nndergunov/deliveryApp/pkg/logger v0.0.0-20221107230847-589103b2ccaa
+	github.com/nndergunov/deliveryApp/pkg/server v0.0.0-20221107230847-589103b2ccaa
 	github.com/stretchr/testify v1.8.1
 	github.com/volatiletech/sqlboiler/v4 v4.13.0
 	github.com/volatiletech/strmangle v0.0.4
@@ -43,6 +43,7 @@ require (
 	github.com/magiconair/properties v1.8.6 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/moby/term v0.0.0-20221105221325-4eb28fa6025c // indirect
+	github.com/nndergunov/deliveryApp/app/pkg/logger v0.0.0-20220805122025-37eac91da1fc // indirect
 	github.com/opencontainers/go-digest v1.0.0 // indirect
 	github.com/opencontainers/image-spec v1.0.2 // indirect
 	github.com/opencontainers/runc v1.1.4 // indirect

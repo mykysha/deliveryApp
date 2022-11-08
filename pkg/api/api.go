@@ -3,7 +3,7 @@ package api
 import (
 	"net/http"
 
-	"github.com/nndergunov/deliveryApp/app/pkg/logger"
+	"github.com/nndergunov/deliveryApp/pkg/logger"
 )
 
 type Multiplexer interface {

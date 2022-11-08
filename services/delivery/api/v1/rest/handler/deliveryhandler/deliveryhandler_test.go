@@ -8,17 +8,14 @@ import (
 	"testing"
 
 	"github.com/golang/mock/gomock"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
-
+	v1 "github.com/nndergunov/deliveryApp/pkg/api/v1"
+	"github.com/nndergunov/deliveryApp/pkg/logger"
 	"github.com/nndergunov/deliveryApp/services/delivery/api/v1/rest/deliveryapi"
-	mockservice "github.com/nndergunov/deliveryApp/services/delivery/pkg/mocks/mock_deliveryservice"
-
 	"github.com/nndergunov/deliveryApp/services/delivery/api/v1/rest/handler/deliveryhandler"
 	"github.com/nndergunov/deliveryApp/services/delivery/pkg/domain"
-
-	v1 "github.com/nndergunov/deliveryApp/app/pkg/api/v1"
-	"github.com/nndergunov/deliveryApp/app/pkg/logger"
+	mockservice "github.com/nndergunov/deliveryApp/services/delivery/pkg/mocks/mock_deliveryservice"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestGetEstimateDeliveryValuesEndpoint(t *testing.T) {

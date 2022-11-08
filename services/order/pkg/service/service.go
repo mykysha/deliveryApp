@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/nndergunov/deliveryApp/app/pkg/messagebroker/messages"
-	"github.com/nndergunov/deliveryApp/app/pkg/messagebroker/publisher"
+	"github.com/nndergunov/deliveryApp/pkg/messagebroker/messages"
+	"github.com/nndergunov/deliveryApp/pkg/messagebroker/publisher"
 	"github.com/nndergunov/deliveryApp/services/order/pkg/clients/accountingclient"
 	"github.com/nndergunov/deliveryApp/services/order/pkg/domain"
 )

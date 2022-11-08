@@ -28,7 +28,7 @@ definitions:
         x-go-name: Username
     title: CourierResponse contains information about the courier.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/courier/api/v1/courierapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/courier/api/v1/courierapi
   CourierResponseList:
     properties:
       CourierResponseList:
@@ -37,7 +37,7 @@ definitions:
         type: array
     title: CourierResponseList contains information about the courier.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/courier/api/v1/courierapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/courier/api/v1/courierapi
   LocationResponse:
     properties:
       city:
@@ -73,7 +73,7 @@ definitions:
         x-go-name: UserID
     title: LocationResponse contains information about the location.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/courier/api/v1/courierapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/courier/api/v1/courierapi
   LocationResponseList:
     properties:
       LocationResponseList:
@@ -82,7 +82,7 @@ definitions:
         type: array
     title: LocationResponseList contains information about the location list.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/courier/api/v1/courierapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/courier/api/v1/courierapi
   NewCourierRequest:
     properties:
       email:
@@ -111,7 +111,7 @@ definitions:
     - phone
     title: NewCourierRequest contains information about the courier.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/courier/api/v1/courierapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/courier/api/v1/courierapi
   NewLocationRequest:
     properties:
       city:
@@ -143,7 +143,7 @@ definitions:
         x-go-name: Street
     title: NewLocationRequest contains information about the location.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/courier/api/v1/courierapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/courier/api/v1/courierapi
   UpdateCourierRequest:
     properties:
       email:
@@ -163,7 +163,7 @@ definitions:
         x-go-name: Username
     title: UpdateCourierRequest contains information about the courier.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/courier/api/v1/courierapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/courier/api/v1/courierapi
   UpdateLocationRequest:
     properties:
       city:
@@ -195,7 +195,7 @@ definitions:
         x-go-name: Street
     title: UpdateLocationRequest contains information about the location.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/courier/api/v1/courierapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/courier/api/v1/courierapi
 host: localhost:80812
 info:
   description: API specification of the courier service

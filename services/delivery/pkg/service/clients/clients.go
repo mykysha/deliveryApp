@@ -1,9 +1,9 @@
 package clients
 
 import (
-	pbConsumer "github.com/nndergunov/deliveryApp/app/services/consumer/api/v1/grpc/proto"
-	pbCourier "github.com/nndergunov/deliveryApp/app/services/courier/api/v1/grpc/proto"
-	pbRes "github.com/nndergunov/deliveryApp/app/services/restaurant/api/v1/grpclogic/pb"
+	pbConsumer "github.com/nndergunov/deliveryApp/services/consumer/api/v1/grpc/proto"
+	pbCourier "github.com/nndergunov/deliveryApp/services/courier/api/v1/grpc/proto"
+	pbRes "github.com/nndergunov/deliveryApp/services/restaurant/api/v1/grpclogic/pb"
 )
 
 type RestaurantClient interface {

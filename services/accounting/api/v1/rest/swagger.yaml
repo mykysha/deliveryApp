@@ -10,7 +10,7 @@ definitions:
         type: array
     title: AccountListResponse contains information about the accounts.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/accounting/api/v1/accountingapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/accounting/api/v1/accountingapi
   AccountResponse:
     properties:
       balance:
@@ -38,7 +38,7 @@ definitions:
         x-go-name: UserType
     title: AccountResponse contains information about the account.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/accounting/api/v1/accountingapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/accounting/api/v1/accountingapi
   NewAccountRequest:
     properties:
       user_id:
@@ -53,7 +53,7 @@ definitions:
     - user_type
     title: NewAccountRequest contains information about the account.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/accounting/api/v1/accountingapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/accounting/api/v1/accountingapi
   TransactionRequest:
     properties:
       amount:
@@ -72,7 +72,7 @@ definitions:
     - amount
     title: TransactionRequest contains information about the transaction.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/accounting/api/v1/accountingapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/accounting/api/v1/accountingapi
   TransactionResponse:
     properties:
       amount:
@@ -104,7 +104,7 @@ definitions:
         x-go-name: Valid
     title: TransactionResponse contains information about the transaction.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/accounting/api/v1/accountingapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/accounting/api/v1/accountingapi
 host: localhost:8080
 info:
   description: API specification of the accounting service

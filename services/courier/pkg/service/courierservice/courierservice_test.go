@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/golang/mock/gomock"
-	"github.com/nndergunov/deliveryApp/app/pkg/logger"
+	"github.com/nndergunov/deliveryApp/pkg/logger"
 	"github.com/nndergunov/deliveryApp/services/courier/pkg/domain"
 	mockstorage "github.com/nndergunov/deliveryApp/services/courier/pkg/mocks"
 	"github.com/nndergunov/deliveryApp/services/courier/pkg/service/courierservice"

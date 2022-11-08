@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/nndergunov/deliveryApp/app/services/order/api/v1/grpclogic/pb"
+	"github.com/nndergunov/deliveryApp/services/order/api/v1/grpclogic/pb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )

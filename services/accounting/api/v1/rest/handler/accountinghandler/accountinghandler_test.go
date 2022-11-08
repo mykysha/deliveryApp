@@ -8,8 +8,8 @@ import (
 	"testing"
 
 	"github.com/golang/mock/gomock"
-	v1 "github.com/nndergunov/deliveryApp/app/pkg/api/v1"
-	"github.com/nndergunov/deliveryApp/app/pkg/logger"
+	v1 "github.com/nndergunov/deliveryApp/pkg/api/v1"
+	"github.com/nndergunov/deliveryApp/pkg/logger"
 	"github.com/nndergunov/deliveryApp/services/accounting/api/v1/rest/accountingapi"
 	"github.com/nndergunov/deliveryApp/services/accounting/pkg/domain"
 	mockservice "github.com/nndergunov/deliveryApp/services/accounting/pkg/mocks"

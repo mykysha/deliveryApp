@@ -3,7 +3,7 @@ package publisher_test
 import (
 	"testing"
 
-	v1 "github.com/nndergunov/deliveryApp/app/pkg/api/v1"
+	v1 "github.com/nndergunov/deliveryApp/pkg/api/v1"
 	"github.com/nndergunov/deliveryApp/pkg/messagebroker/publisher"
 	amqp "github.com/rabbitmq/amqp091-go"
 )

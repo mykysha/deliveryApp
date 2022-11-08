@@ -5,7 +5,7 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/nndergunov/deliveryApp/app/pkg/logger"
+	"github.com/nndergunov/deliveryApp/pkg/logger"
 	"github.com/nndergunov/deliveryApp/pkg/server/config"
 )
 

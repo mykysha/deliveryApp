@@ -3,7 +3,7 @@ package subscriber_test
 import (
 	"testing"
 
-	v1 "github.com/nndergunov/deliveryApp/app/pkg/api/v1"
+	v1 "github.com/nndergunov/deliveryApp/pkg/api/v1"
 	"github.com/nndergunov/deliveryApp/pkg/messagebroker/subscriber"
 	amqp "github.com/rabbitmq/amqp091-go"
 )

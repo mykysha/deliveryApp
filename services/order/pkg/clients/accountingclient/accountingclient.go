@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"log"
 
-	pb "github.com/nndergunov/deliveryApp/app/services/accounting/api/v1/grpc/proto"
+	pb "github.com/nndergunov/deliveryApp/services/accounting/api/v1/grpc/proto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )

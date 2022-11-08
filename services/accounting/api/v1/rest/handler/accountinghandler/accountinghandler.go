@@ -6,10 +6,8 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-
-	v1 "github.com/nndergunov/deliveryApp/app/pkg/api/v1"
-	"github.com/nndergunov/deliveryApp/app/pkg/logger"
-
+	v1 "github.com/nndergunov/deliveryApp/pkg/api/v1"
+	"github.com/nndergunov/deliveryApp/pkg/logger"
 	accountingapi "github.com/nndergunov/deliveryApp/services/accounting/api/v1/rest/accountingapi"
 	"github.com/nndergunov/deliveryApp/services/accounting/pkg/domain"
 	"github.com/nndergunov/deliveryApp/services/accounting/pkg/service/accountingservice"
@@ -95,31 +93,33 @@ func (a handler) StatusHandler(responseWriter http.ResponseWriter, _ *http.Reque
 
 // swagger:operation POST /accounts InsertNewAccount
 //
-// Returns created account
+// # Returns created account
 //
 // ---
 // produces:
 // - application/json
 // parameters:
-// - name: Body
-//   in: body
-//   description: account data
-//   schema:
+//   - name: Body
+//     in: body
+//     description: account data
+//     schema:
 //     $ref: "#/definitions/NewAccountRequest"
-//   required: true
+//     required: true
+//
 // responses:
-//   '200':
-//     description: created account
-//     schema:
-//       $ref: "#/definitions/AccountResponse"
-//   '500':
-//     description: internal server error
-//     schema:
-//       type: string
-//   '400':
-//     description: bad request
-//     schema:
-//       type: string
+//
+//	'200':
+//	  description: created account
+//	  schema:
+//	    $ref: "#/definitions/AccountResponse"
+//	'500':
+//	  description: internal server error
+//	  schema:
+//	    type: string
+//	'400':
+//	  description: bad request
+//	  schema:
+//	    type: string
 func (a handler) InsertNewAccount(rw http.ResponseWriter, r *http.Request) {
 	var newAccountRequest accountingapi.NewAccountRequest
 
@@ -159,31 +159,33 @@ func (a handler) InsertNewAccount(rw http.ResponseWriter, r *http.Request) {
 
 // swagger:operation GET /accounts/{account_id} GetAccount
 //
-// Returns account
+// # Returns account
 //
 // ---
 // produces:
 // - application/json
 // parameters:
-// - name: account_id
-//   in: path
-//   description: account_id
-//   schema:
+//   - name: account_id
+//     in: path
+//     description: account_id
+//     schema:
 //     type: integer
-//   required: true
+//     required: true
+//
 // responses:
-//   '200':
-//     description: created account
-//     schema:
-//       $ref: "#/definitions/AccountResponse"
-//   '500':
-//     description: internal server error
-//     schema:
-//       type: string
-//   '400':
-//     description: bad request
-//     schema:
-//       type: string
+//
+//	'200':
+//	  description: created account
+//	  schema:
+//	    $ref: "#/definitions/AccountResponse"
+//	'500':
+//	  description: internal server error
+//	  schema:
+//	    type: string
+//	'400':
+//	  description: bad request
+//	  schema:
+//	    type: string
 func (a handler) GetAccount(rw http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	id, ok := vars[accountIDKey]
@@ -227,30 +229,32 @@ func (a handler) GetAccount(rw http.ResponseWriter, r *http.Request) {
 
 // swagger:operation DELETE /accounts/{account_id} DeleteAccount
 //
-// Returns account
+// # Returns account
 //
 // ---
 // produces:
 // - application/json
 // parameters:
-// - name: account_id
-//   in: path
-//   description: account_id
-//   schema:
+//   - name: account_id
+//     in: path
+//     description: account_id
+//     schema:
 //     type: integer
-//   required: true
+//     required: true
+//
 // responses:
-//   '200':
-//     description: account deleted
-//     type: string
-//   '500':
-//     description: internal server error
-//     schema:
-//       type: string
-//   '400':
-//     description: bad request
-//     schema:
-//       type: string
+//
+//	'200':
+//	  description: account deleted
+//	  type: string
+//	'500':
+//	  description: internal server error
+//	  schema:
+//	    type: string
+//	'400':
+//	  description: bad request
+//	  schema:
+//	    type: string
 func (a handler) DeleteAccount(rw http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	id, ok := vars[accountIDKey]
@@ -286,31 +290,33 @@ func (a handler) DeleteAccount(rw http.ResponseWriter, r *http.Request) {
 
 // swagger:operation POST /transactions InsertTransaction
 //
-// Returns account
+// # Returns account
 //
 // ---
 // produces:
 // - application/json
 // parameters:
-// - name: Body
-//   in: body
-//   description: transaction data
-//   schema:
+//   - name: Body
+//     in: body
+//     description: transaction data
+//     schema:
 //     $ref: "#/definitions/NewAccountRequest"
-//   required: true
+//     required: true
+//
 // responses:
-//   '200':
-//     description: successfully transaction
-//     schema:
-//       $ref: "#/definitions/TransactionResponse"
-//   '500':
-//     description: internal server error
-//     schema:
-//       type: string
-//   '400':
-//     description: bad request
-//     schema:
-//       type: string
+//
+//	'200':
+//	  description: successfully transaction
+//	  schema:
+//	    $ref: "#/definitions/TransactionResponse"
+//	'500':
+//	  description: internal server error
+//	  schema:
+//	    type: string
+//	'400':
+//	  description: bad request
+//	  schema:
+//	    type: string
 func (a handler) InsertTransaction(rw http.ResponseWriter, r *http.Request) {
 	var transactionRequest accountingapi.TransactionRequest
 
@@ -351,35 +357,37 @@ func (a handler) InsertTransaction(rw http.ResponseWriter, r *http.Request) {
 
 // swagger:operation GET /transactions GetAccountList
 //
-// Returns account
+// # Returns account
 //
 // ---
 // produces:
 // - application/json
 // parameters:
-// - type: string
-//   description: user_id
-//   name: user_id
-//   in: query
-//   required: true
-// - type: string
-//   description: user_id
-//   name: user_id
-//   in: query
-//   required: true
+//   - type: string
+//     description: user_id
+//     name: user_id
+//     in: query
+//     required: true
+//   - type: string
+//     description: user_id
+//     name: user_id
+//     in: query
+//     required: true
+//
 // responses:
-//   '200':
-//     description:   account list data
-//     schema:
-//       $ref: "#/definitions/AccountListResponse"
-//   '500':
-//     description: internal server error
-//     schema:
-//       type: string
-//   '400':
-//     description: bad request
-//     schema:
-//       type: string
+//
+//	'200':
+//	  description:   account list data
+//	  schema:
+//	    $ref: "#/definitions/AccountListResponse"
+//	'500':
+//	  description: internal server error
+//	  schema:
+//	    type: string
+//	'400':
+//	  description: bad request
+//	  schema:
+//	    type: string
 func (a handler) GetAccountList(rw http.ResponseWriter, r *http.Request) {
 	searchParam := domain.SearchParam{}
 
@@ -435,25 +443,27 @@ func (a handler) GetAccountList(rw http.ResponseWriter, r *http.Request) {
 // produces:
 // - application/json
 // parameters:
-// - name: account_id
-//   in: path
-//   description: account_id
-//   schema:
+//   - name: account_id
+//     in: path
+//     description: account_id
+//     schema:
 //     type: integer
-//   required: true
+//     required: true
+//
 // responses:
-//   '200':
-//     description: "transaction deleted"
-//     schema:
-//       type: string
-//   '500':
-//     description: internal server error
-//     schema:
-//       type: string
-//   '400':
-//     description: bad request
-//     schema:
-//       type: string
+//
+//	'200':
+//	  description: "transaction deleted"
+//	  schema:
+//	    type: string
+//	'500':
+//	  description: internal server error
+//	  schema:
+//	    type: string
+//	'400':
+//	  description: bad request
+//	  schema:
+//	    type: string
 func (a handler) DeleteTransaction(rw http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	id, ok := vars[trIDKey]

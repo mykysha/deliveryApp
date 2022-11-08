@@ -8,7 +8,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/nndergunov/deliveryApp/app/pkg/configreader"
+	"github.com/nndergunov/deliveryApp/pkg/configreader"
 )
 
 type googleApiResponse struct {

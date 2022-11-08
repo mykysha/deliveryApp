@@ -3,8 +3,8 @@ package service_test
 import (
 	"testing"
 
-	"github.com/nndergunov/deliveryApp/app/services/order/api/v1/grpclogic/pb"
 	"github.com/nndergunov/deliveryApp/services/kitchen/pkg/service"
+	"github.com/nndergunov/deliveryApp/services/order/api/v1/grpclogic/pb"
 )
 
 var mockOrderList = pb.OrderResponseList{OrderResponseList: []*pb.OrderResponse{

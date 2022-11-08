@@ -22,7 +22,7 @@ definitions:
         x-go-name: Phone
     title: ConsumerResponse  contains information about the consumer.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/consumer/api/v1/consumerapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/consumer/api/v1/consumerapi
   LocationResponse:
     properties:
       city:
@@ -58,7 +58,7 @@ definitions:
         x-go-name: UserID
     title: LocationResponse  contains information about the location response.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/consumer/api/v1/consumerapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/consumer/api/v1/consumerapi
   NewConsumerRequest:
     properties:
       email:
@@ -79,7 +79,7 @@ definitions:
     - phone
     title: NewConsumerRequest contains information about the consumer.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/consumer/api/v1/consumerapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/consumer/api/v1/consumerapi
   NewLocationRequest:
     properties:
       city:
@@ -111,7 +111,7 @@ definitions:
         x-go-name: Street
     title: NewLocationRequest contains information about the location.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/consumer/api/v1/consumerapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/consumer/api/v1/consumerapi
   ReturnConsumerResponseList:
     properties:
       ConsumerResponseList:
@@ -120,7 +120,7 @@ definitions:
         type: array
     title: ReturnConsumerResponseList  contains information about the consumer list.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/consumer/api/v1/consumerapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/consumer/api/v1/consumerapi
   UpdateConsumerRequest:
     properties:
       email:
@@ -137,7 +137,7 @@ definitions:
         x-go-name: Phone
     title: UpdateConsumerRequest contains information about the consumer.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/consumer/api/v1/consumerapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/consumer/api/v1/consumerapi
   UpdateLocationRequest:
     properties:
       city:
@@ -169,7 +169,7 @@ definitions:
         x-go-name: Street
     title: UpdateLocationRequest contains information about the location.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/consumer/api/v1/consumerapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/consumer/api/v1/consumerapi
 host: localhost:8081
 info:
   description: API specification of the consumer service

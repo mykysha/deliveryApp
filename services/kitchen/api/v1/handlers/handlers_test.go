@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"testing"
 
-	v1 "github.com/nndergunov/deliveryApp/app/pkg/api/v1"
-	"github.com/nndergunov/deliveryApp/app/pkg/logger"
+	v1 "github.com/nndergunov/deliveryApp/pkg/api/v1"
+	"github.com/nndergunov/deliveryApp/pkg/logger"
 	"github.com/nndergunov/deliveryApp/services/kitchen/api/v1/handlers"
 	"github.com/nndergunov/deliveryApp/services/kitchen/api/v1/kitchenapi"
 	"github.com/nndergunov/deliveryApp/services/kitchen/pkg/domain"

@@ -55,6 +55,7 @@ download-gomod:
 	go get -u github.com/nndergunov/deliveryApp/pkg/api
 	go get -u github.com/nndergunov/deliveryApp/pkg/configreader
 	go get -u github.com/nndergunov/deliveryApp/pkg/logger
+	go get -u github.com/nndergunov/deliveryApp/pkg/grpcserver
 	go get -u github.com/nndergunov/deliveryApp/pkg/server
 	go get -u github.com/gorilla/mux
 	go get -u github.com/lib/pq

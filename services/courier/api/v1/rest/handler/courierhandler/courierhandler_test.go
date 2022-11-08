@@ -8,17 +8,14 @@ import (
 	"testing"
 
 	"github.com/golang/mock/gomock"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
-
+	v1 "github.com/nndergunov/deliveryApp/pkg/api/v1"
+	"github.com/nndergunov/deliveryApp/pkg/logger"
 	"github.com/nndergunov/deliveryApp/services/courier/api/v1/rest/courierapi"
-
 	"github.com/nndergunov/deliveryApp/services/courier/api/v1/rest/handler/courierhandler"
 	"github.com/nndergunov/deliveryApp/services/courier/pkg/domain"
 	mockservice "github.com/nndergunov/deliveryApp/services/courier/pkg/mocks"
-
-	v1 "github.com/nndergunov/deliveryApp/app/pkg/api/v1"
-	"github.com/nndergunov/deliveryApp/app/pkg/logger"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestInsertNewCourierEndpoint(t *testing.T) {

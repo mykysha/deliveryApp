@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"log"
 
-	pb "github.com/nndergunov/deliveryApp/app/services/restaurant/api/v1/grpclogic/pb"
 	"github.com/nndergunov/deliveryApp/services/order/pkg/domain"
+	pb "github.com/nndergunov/deliveryApp/services/restaurant/api/v1/grpclogic/pb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )

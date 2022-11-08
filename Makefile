@@ -19,10 +19,9 @@ cl-start-all:
 	make -C ./services/order cl-start
 	make -C ./services/restaurant cl-start
 
-
 update-gomod-all:
-	make download-gomod-all
-	make gomod-tidy-all
+	make -C ./pkg update-gomod-all
+	make -C ./services update-gomod-all
 
 download-gomod-all:
 	make -C ./pkg download-gomod-all

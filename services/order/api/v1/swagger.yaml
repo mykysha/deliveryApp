@@ -12,7 +12,7 @@ definitions:
     - MenuItems
     title: MenuData contains information about the menu.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/restaurant/api/v1/restaurantapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/restaurant/api/v1/restaurantapi
   MenuItemData:
     properties:
       Course:
@@ -33,7 +33,7 @@ definitions:
     - Course
     title: MenuItemData contains information about the menu item.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/restaurant/api/v1/restaurantapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/restaurant/api/v1/restaurantapi
   OrderData:
     properties:
       FromUserID:
@@ -53,7 +53,7 @@ definitions:
     - OrderItems
     title: OrderData contains information about created order.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/order/api/v1/orderapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/order/api/v1/orderapi
   OrderFilters:
     properties:
       ExcludeStatuses:
@@ -69,7 +69,7 @@ definitions:
         type: array
     title: OrderFilters struct lets user determine which orders they want to see.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/order/api/v1/orderapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/order/api/v1/orderapi
   OrderStatusData:
     properties:
       Status:
@@ -78,7 +78,7 @@ definitions:
     - Status
     title: OrderStatusData is used by admins to update current order status.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/order/api/v1/orderapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/order/api/v1/orderapi
   RestaurantData:
     properties:
       AcceptingOrders:
@@ -104,7 +104,7 @@ definitions:
     - Latitude
     title: RestaurantData contains information about the restaurant.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/restaurant/api/v1/restaurantapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/restaurant/api/v1/restaurantapi
   ReturnMenu:
     properties:
       MenuItems:
@@ -116,7 +116,7 @@ definitions:
         type: integer
     title: ReturnMenu contains information about the menu from requested restaurant.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/restaurant/api/v1/restaurantapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/restaurant/api/v1/restaurantapi
   ReturnMenuItem:
     properties:
       Course:
@@ -131,7 +131,7 @@ definitions:
         type: number
     title: ReturnMenuItem contains information about requested menu item.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/restaurant/api/v1/restaurantapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/restaurant/api/v1/restaurantapi
   ReturnOrder:
     properties:
       FromUserID:
@@ -152,7 +152,7 @@ definitions:
         type: string
     title: ReturnOrder contains order information.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/order/api/v1/orderapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/order/api/v1/orderapi
   ReturnOrderList:
     properties:
       Orders:
@@ -162,7 +162,7 @@ definitions:
         type: array
     title: ReturnOrderList contains information about all the requested orders.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/order/api/v1/orderapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/order/api/v1/orderapi
   ReturnRestaurant:
     properties:
       AcceptingOrders:
@@ -184,7 +184,7 @@ definitions:
         type: string
     title: ReturnRestaurant contains information about the requested restaurant.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/restaurant/api/v1/restaurantapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/restaurant/api/v1/restaurantapi
   ReturnRestaurantList:
     properties:
       List:
@@ -193,7 +193,7 @@ definitions:
         type: array
     title: ReturnRestaurantList contains data about all the requested restaurants.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/restaurant/api/v1/restaurantapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/restaurant/api/v1/restaurantapi
 host: localhost:8085
 info:
   description: API specification of the order service

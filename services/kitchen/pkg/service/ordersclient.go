@@ -1,7 +1,7 @@
 package service
 
 import (
-	"github.com/nndergunov/deliveryApp/app/services/order/api/v1/grpclogic/pb"
+	"github.com/nndergunov/deliveryApp/services/order/api/v1/grpclogic/pb"
 )
 
 // OrdersClient interface shows needed signature for the Order Client.

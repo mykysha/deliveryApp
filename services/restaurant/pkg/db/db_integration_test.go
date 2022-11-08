@@ -12,7 +12,7 @@ import (
 
 	"github.com/adrianbrad/psqldocker"
 	"github.com/adrianbrad/psqltest"
-	"github.com/nndergunov/deliveryApp/app/pkg/configreader"
+	"github.com/nndergunov/deliveryApp/pkg/configreader"
 	"github.com/nndergunov/deliveryApp/services/restaurant/pkg/db"
 	"github.com/nndergunov/deliveryApp/services/restaurant/pkg/domain"
 )

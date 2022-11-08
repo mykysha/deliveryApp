@@ -1,6 +1,11 @@
 update-gomod-all:
-	make download-gomod-all
-	make gomod-tidy-all
+	make -C ./accounting/ update-gomod
+	make -C ./consumer/ update-gomod
+	make -C ./courier/ update-gomod
+	make -C ./delivery/ update-gomod
+	make -C ./kitchen/ update-gomod
+	make -C ./order/ update-gomod
+	make -C ./restaurant/ update-gomod
 
 download-gomod-all:
 	make -C ./accounting/ download-gomod

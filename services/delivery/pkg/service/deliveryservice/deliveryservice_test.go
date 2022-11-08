@@ -6,14 +6,14 @@ import (
 	"testing"
 
 	"github.com/golang/mock/gomock"
-	"github.com/nndergunov/deliveryApp/app/pkg/logger"
-	"github.com/nndergunov/deliveryApp/app/services/consumer/api/v1/rest/consumerapi"
-	"github.com/nndergunov/deliveryApp/app/services/courier/api/v1/rest/courierapi"
-	"github.com/nndergunov/deliveryApp/app/services/restaurant/api/v1/restaurantapi"
+	"github.com/nndergunov/deliveryApp/pkg/logger"
+	"github.com/nndergunov/deliveryApp/services/consumer/api/v1/rest/consumerapi"
+	"github.com/nndergunov/deliveryApp/services/courier/api/v1/rest/courierapi"
 	"github.com/nndergunov/deliveryApp/services/delivery/pkg/domain"
 	"github.com/nndergunov/deliveryApp/services/delivery/pkg/mocks/mock_clients"
 	mock "github.com/nndergunov/deliveryApp/services/delivery/pkg/mocks/mock_deliverystorage"
 	"github.com/nndergunov/deliveryApp/services/delivery/pkg/service/deliveryservice"
+	"github.com/nndergunov/deliveryApp/services/restaurant/api/v1/restaurantapi"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

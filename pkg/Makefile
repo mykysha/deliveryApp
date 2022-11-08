@@ -1,6 +1,9 @@
 update-gomod-all:
-	make download-gomod-all
-	make gomod-tidy-all
+	make -C ./api update-gomod
+	make -C ./configreader update-gomod
+	make -C ./grpcserver update-gomod
+	make -C ./messagebroker update-gomod
+	make -C ./server update-gomod
 
 download-gomod-all:
 	make -C ./api download-gomod

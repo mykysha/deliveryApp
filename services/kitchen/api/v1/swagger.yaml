@@ -21,7 +21,7 @@ definitions:
     - OrderItems
     title: OrderData contains information about created order.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/order/api/v1/orderapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/order/api/v1/orderapi
   OrderFilters:
     properties:
       ExcludeStatuses:
@@ -37,7 +37,7 @@ definitions:
         type: array
     title: OrderFilters struct lets user determine which orders they want to see.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/order/api/v1/orderapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/order/api/v1/orderapi
   OrderStatusData:
     properties:
       Status:
@@ -46,7 +46,7 @@ definitions:
     - Status
     title: OrderStatusData is used by admins to update current order status.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/order/api/v1/orderapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/order/api/v1/orderapi
   ReturnOrder:
     properties:
       FromUserID:
@@ -67,7 +67,7 @@ definitions:
         type: string
     title: ReturnOrder contains order information.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/order/api/v1/orderapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/order/api/v1/orderapi
   ReturnOrderList:
     properties:
       Orders:
@@ -77,13 +77,13 @@ definitions:
         type: array
     title: ReturnOrderList contains information about all the requested orders.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/order/api/v1/orderapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/order/api/v1/orderapi
   Tasks:
     properties:
       Tasks: {}
     title: Tasks contains information about what number of what dishes must be prepared.
     type: object
-    x-go-package: github.com/nndergunov/deliveryApp/app/services/kitchen/api/v1/kitchenapi
+    x-go-package: github.com/nndergunov/deliveryApp/services/kitchen/api/v1/kitchenapi
 host: localhost:8084
 info:
   description: API specification of the kitchen service

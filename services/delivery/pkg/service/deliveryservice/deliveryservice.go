@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/nndergunov/deliveryApp/app/pkg/logger"
+	"github.com/nndergunov/deliveryApp/pkg/logger"
 	"github.com/nndergunov/deliveryApp/services/delivery/pkg/domain"
 	"github.com/nndergunov/deliveryApp/services/delivery/pkg/service/clients"
 	"github.com/nndergunov/deliveryApp/services/delivery/pkg/service/deliveryservice/tools"
