@@ -7,12 +7,8 @@ github.com/gorilla/handlers v1.5.1/go.mod h1:t8XrUpc4KVXb7HGyJ4/cEnwQiaxrX/hz1Zv
 github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORNo=
 github.com/kr/pty v1.1.1/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
 github.com/kr/text v0.1.0/go.mod h1:4Jbv+DJW3UT/LiOwJeYQe1efqtUx/iVham/4vfdArNI=
-github.com/nndergunov/deliveryApp/pkg/api v0.0.0-20221107230847-589103b2ccaa h1:Xt5t5DK3JNWxXw2lQf9LfS5ZaWS5rlXOq/5IObwVf08=
-github.com/nndergunov/deliveryApp/pkg/api v0.0.0-20221107230847-589103b2ccaa/go.mod h1:i+z40gTCOD40GUOpLEJeSDJ2XS9AijrTov7kQxNP49Q=
 github.com/nndergunov/deliveryApp/pkg/api v0.0.0-20221108003103-af6dafb901d2 h1:WCyyUaZV6t4Wq4D4F+BFD+KaMFZtQJ8wUFYjOunTZHc=
 github.com/nndergunov/deliveryApp/pkg/api v0.0.0-20221108003103-af6dafb901d2/go.mod h1:acaFVEPp4nqvImYmyWHH1HOmBg4cHtXrPgSnnwKdpxc=
-github.com/nndergunov/deliveryApp/pkg/logger v0.0.0-20221108003103-af6dafb901d2 h1:L2ljU4eZMOdvExLD7FTQPgi63oekTqnVoU8xh7Cztag=
-github.com/nndergunov/deliveryApp/pkg/logger v0.0.0-20221108003103-af6dafb901d2/go.mod h1:6Pod6SWOMtg8sIsQ/ukTlBsAbObhff1qHhYLhFxszSE=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/rabbitmq/amqp091-go v1.5.0 h1:VouyHPBu1CrKyJVfteGknGOGCzmOz0zcv/tONLkb7rg=
 github.com/rabbitmq/amqp091-go v1.5.0/go.mod h1:JsV0ofX5f1nwOGafb8L5rBItt9GyhfQfcJj+oyz0dGg=

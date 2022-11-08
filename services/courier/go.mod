@@ -9,7 +9,7 @@ require (
 	github.com/lib/pq v1.10.7
 	github.com/nndergunov/deliveryApp/pkg/api v0.0.0-20221108003103-af6dafb901d2
 	github.com/nndergunov/deliveryApp/pkg/configreader v0.0.0-20221108003103-af6dafb901d2
-	github.com/nndergunov/deliveryApp/pkg/grpcserver v0.0.0-20221107230847-589103b2ccaa
+	github.com/nndergunov/deliveryApp/pkg/grpcserver v0.0.0-20221108003103-af6dafb901d2
 	github.com/nndergunov/deliveryApp/pkg/logger v0.0.0-20221108003103-af6dafb901d2
 	github.com/nndergunov/deliveryApp/pkg/server v0.0.0-20221108003103-af6dafb901d2
 	github.com/stretchr/testify v1.8.1

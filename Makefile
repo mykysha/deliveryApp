@@ -32,10 +32,10 @@ gomod-tidy-all:
 	make -C ./services gomod-tidy-all
 
 check-all:
-	make -C ./services/accounting check
-	make -C ./services/consumer check
-	make -C ./services/courier check
-	make -C ./services/delivery check
-	make -C ./services/kitchen check
-	make -C ./services/order check
-	make -C ./services/restaurant check
+	make -C ./services/accounting status-check
+	make -C ./services/consumer status-check
+	make -C ./services/courier status-check
+	make -C ./services/delivery status-check
+	make -C ./services/kitchen status-check
+	make -C ./services/order status-check
+	make -C ./services/restaurant status-check
