@@ -4,7 +4,6 @@ update-gomod:
 
 download-gomod:
 	go get -u github.com/gorilla/handlers
-	go get -u github.com/gorilla/mux
 	go get -u github.com/nndergunov/deliveryApp/pkg/logger
 
 gomod-tidy:

@@ -7,11 +7,11 @@ require (
 	github.com/golang/mock v1.4.4
 	github.com/gorilla/mux v1.8.0
 	github.com/lib/pq v1.10.7
-	github.com/nndergunov/deliveryApp/pkg/api v0.0.0-20221107230847-589103b2ccaa
-	github.com/nndergunov/deliveryApp/pkg/configreader v0.0.0-20221107230847-589103b2ccaa
+	github.com/nndergunov/deliveryApp/pkg/api v0.0.0-20221108003103-af6dafb901d2
+	github.com/nndergunov/deliveryApp/pkg/configreader v0.0.0-20221108003103-af6dafb901d2
 	github.com/nndergunov/deliveryApp/pkg/grpcserver v0.0.0-20221107230847-589103b2ccaa
-	github.com/nndergunov/deliveryApp/pkg/logger v0.0.0-20221107230847-589103b2ccaa
-	github.com/nndergunov/deliveryApp/pkg/server v0.0.0-20221107230847-589103b2ccaa
+	github.com/nndergunov/deliveryApp/pkg/logger v0.0.0-20221108003103-af6dafb901d2
+	github.com/nndergunov/deliveryApp/pkg/server v0.0.0-20221108003103-af6dafb901d2
 	github.com/nndergunov/deliveryApp/services/consumer v0.0.0-20221107230847-589103b2ccaa
 	github.com/nndergunov/deliveryApp/services/courier v0.0.0-20221107230847-589103b2ccaa
 	github.com/nndergunov/deliveryApp/services/restaurant v0.0.0-20221107230847-589103b2ccaa
@@ -29,8 +29,6 @@ require (
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/magiconair/properties v1.8.6 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
-	github.com/nndergunov/deliveryApp/app/pkg/api v0.0.0-20220805122025-37eac91da1fc // indirect
-	github.com/nndergunov/deliveryApp/app/pkg/logger v0.0.0-20220805122025-37eac91da1fc // indirect
 	github.com/pelletier/go-toml v1.9.5 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.5 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect

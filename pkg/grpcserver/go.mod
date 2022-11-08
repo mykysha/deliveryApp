@@ -3,7 +3,7 @@ module github.com/nndergunov/deliveryApp/pkg/grpcserver
 go 1.18
 
 require (
-	github.com/nndergunov/deliveryApp/pkg/logger v0.0.0-20221107230847-589103b2ccaa
+	github.com/nndergunov/deliveryApp/pkg/logger v0.0.0-20221108003103-af6dafb901d2
 	google.golang.org/grpc v1.50.1
 )
 

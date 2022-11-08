@@ -3,7 +3,7 @@ module github.com/nndergunov/deliveryApp/pkg/messagebroker
 go 1.18
 
 require (
-	github.com/nndergunov/deliveryApp/pkg/api v0.0.0-20221107230847-589103b2ccaa
+	github.com/nndergunov/deliveryApp/pkg/api v0.0.0-20221108003103-af6dafb901d2
 	github.com/rabbitmq/amqp091-go v1.5.0
 )
 
